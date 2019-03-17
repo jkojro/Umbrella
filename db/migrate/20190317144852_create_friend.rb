@@ -3,7 +3,7 @@ class CreateFriend < ActiveRecord::Migration[5.2]
     create_table :friends do |t|
       t.string :email, null: false
       t.text :answear, null: false
-      t.references :umbrela, foreign_key: true
+      t.references :umbrella, foreign_key: true
     end
   end
 end
