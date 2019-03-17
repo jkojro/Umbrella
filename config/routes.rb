@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :umbrellas, only: [:show, :new]
+  resources :umbrellas, only: [:new, :create, :show]
+  root 'umbrellas#new'
 end
