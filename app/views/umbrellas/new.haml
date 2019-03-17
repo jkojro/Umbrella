@@ -1,1 +1,14 @@
-%h1 This is new Umbrella placeholder
+%h3 Umbrella
+= simple_form_for @umbrella do |f|
+  - if @umbrella.errors.any?
+    #errors
+      %p
+        = @umbrella.errors.count
+        errors prevented from saving this Umbrella.
+      %ul
+        - @umbrella.erros.full_messages.ech do |msg|
+          %li= msg
+  .panel-body
+    = f.input :message, input_html: { class: 'form-control' }
+
+  = f.button :submit, class: 'btn btn-primary'
