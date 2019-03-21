@@ -7,6 +7,7 @@ class UmbrellasController < ApplicationController
 
   def create
     Umbrella.create(umbrella_params)
+    render plain: 'After create placeholder'
   end
 
   def show
@@ -16,6 +17,6 @@ class UmbrellasController < ApplicationController
   private
 
   def umbrella_params
-    params.require(:umbrella).permit(:message)
+    params.require(:umbrella).permit(:message, friends_attributes: [:id, :email, :answear])
   end
 end

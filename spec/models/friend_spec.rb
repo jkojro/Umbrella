@@ -5,7 +5,6 @@ RSpec.describe Friend, type: :model do
     context 'presence' do
       subject { FactoryBot.build(:friend) }
       it { should validate_presence_of(:email) }
-      it { should validate_presence_of(:answear) }
     end
   end
 end

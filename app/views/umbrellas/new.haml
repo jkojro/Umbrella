@@ -10,5 +10,12 @@
           %li= msg
   .panel-body
     = f.input :message, input_html: { class: 'form-control' }
-
+    .row
+      .col-md-6
+        %h4 Add friends emails
+        #friends
+          = f.simple_fields_for :friends do |friend|
+            = render 'friend_fields', f: friend
+          .links
+            = link_to_add_association 'add friend', f, :friends, class: 'btn btn-light add-button'
   = f.button :submit, class: 'btn btn-primary'
