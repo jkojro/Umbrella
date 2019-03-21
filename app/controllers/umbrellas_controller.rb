@@ -1,13 +1,20 @@
 class UmbrellasController < ApplicationController
+  before_action :authenticate_user!
+
   MESSAGE = 'To jest defaultowy message, który będzie wyświetlany w /new, ale może być zmieniony przez usera'.freeze
+  
   def new
-    @umbrella = Umbrella.new
+    @umbrella = current_user.umbrellas.build
     @umbrella.message = MESSAGE
   end
 
   def create
-    Umbrella.create(umbrella_params)
-    render plain: 'After create placeholder'
+    @umbrella = current_user.umbrellas.build(umbrella_params)
+    if @umbrella.save
+			redirect_to @umbrella, notice: "Successfully created your umbrella"
+		else
+			render 'new'
+		end
   end
 
   def show

@@ -1,3 +1,8 @@
-%h1 This is Umbrella show page placeholder
+%h1 This is where your message will go!
 
 %p= @umbrella.message
+%ul
+  - @umbrella.friends.each do |friend|
+    %li= friend.email
+
+=link_to 'New Umbrella', new_umbrella_path

@@ -37,6 +37,7 @@ gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'jquery-rails', '>= 3.0'
 gem 'simple_form', '~> 4.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'devise', '~> 4.6', '>= 4.6.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

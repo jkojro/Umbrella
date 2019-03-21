@@ -6,7 +6,7 @@
         = @umbrella.errors.count
         errors prevented from saving this Umbrella.
       %ul
-        - @umbrella.erros.full_messages.ech do |msg|
+        - @umbrella.errors.full_messages.each do |msg|
           %li= msg
   .panel-body
     = f.input :message, input_html: { class: 'form-control' }
