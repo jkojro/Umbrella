@@ -2,7 +2,7 @@ class UmbrellasController < ApplicationController
   before_action :authenticate_user!
 
   MESSAGE = 'To jest defaultowy message, który będzie wyświetlany w /new, ale może być zmieniony przez usera'.freeze
-  
+
   def new
     @umbrella = current_user.umbrellas.build
     @umbrella.message = MESSAGE
