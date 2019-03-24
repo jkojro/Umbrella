@@ -1,12 +1,13 @@
 class FriendsController < ApplicationController
-  def edit
-    @friend = Friend.find(params[:id])
-  end
+  before_action :set_friend, only: [:show, :edit, :update]
+
+  def show; end
+
+  def edit; end
 
   def update
-    @friend = Friend.find(params[:id])
     if @friend.update(friend_params)
-			render plain: "Twoja wypowiedź została dodana"
+			redirect_to umbrella_friend_path(@friend.umbrella, @friend), notice: "Twoja wypowiedź została dodana"
 		else
 			render 'edit'
 		end
@@ -16,5 +17,9 @@ class FriendsController < ApplicationController
 
   def friend_params
     params.require(:friend).permit(:answear)
+  end
+
+  def set_friend
+    @friend = Friend.find(params[:id])
   end
 end
