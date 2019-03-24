@@ -4,8 +4,12 @@ class UmbrellasController < ApplicationController
   MESSAGE = 'To jest defaultowy message, który będzie wyświetlany w /new, ale może być zmieniony przez usera'.freeze
 
   def new
-    @umbrella = current_user.umbrellas.build
-    @umbrella.message = MESSAGE
+    if current_user.umbrellas.present?
+      redirect_to current_user.umbrellas.last
+    else
+      @umbrella = current_user.umbrellas.build
+      @umbrella.message = MESSAGE
+    end
   end
 
   def create

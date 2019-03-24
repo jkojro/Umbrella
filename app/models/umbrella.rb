@@ -9,6 +9,11 @@ class Umbrella < ApplicationRecord
 
   after_save :send_emails_to_friends
 
+  def time_to_end
+    time_passed = Time.now.to_date - created_at.to_date
+    7 - time_passed.to_i
+  end
+
   private
 
   def send_emails_to_friends
