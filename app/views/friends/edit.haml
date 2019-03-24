@@ -1,0 +1,14 @@
+%h3Friend
+= simple_form_for [@friend.umbrella, @friend] do |f|
+  - if @friend.errors.any?
+    #errors
+      %p
+        = @friend.errors.count
+        errors prevented from saving this Umbrella.
+      %ul
+        - @friend.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :answear, input_html: { class: 'form-control' }
+
+  = f.button :submit, class: 'btn btn-primary'

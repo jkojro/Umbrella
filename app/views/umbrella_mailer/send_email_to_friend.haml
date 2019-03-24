@@ -12,4 +12,5 @@
 
         Teraz po prostu kliknij w poniższy link i napisz kilka słów. #{@friend.umbrella.user.email} będzie Ci wdzięczny/a!
 
-      %h4 link placeholder
+      %h2
+        = link_to 'Zostaw komentarz', edit_umbrella_friend_url(@friend.umbrella, @friend)
