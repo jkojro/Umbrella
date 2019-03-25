@@ -1,0 +1,10 @@
+- if @umbrella.friends.any? { |f| f.answear.present? }
+  .container
+    %h2 Hej #{@umbrella.user.email}! Koniec Czekania. Mamy wypowiedzi Twoich znajomych! Oto one.
+    .panel.panel-primary
+      .panel-heading
+        %ul
+        - @umbrella.friends.shuffle.each do |friend|
+          %p= friend.answear
+- else
+  %h3 Przykro nam, nie uzyskaliśmy wypowiedzi od Twoich znajomych :(

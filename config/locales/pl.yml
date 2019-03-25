@@ -1,2 +1,3 @@
 pl:
-  subject: Twój przyjacie prosi o wsparcie
+  to_friend_subject: Twój przyjacie prosi o wsparcie
+  results_subject: Czekanie dobiegło końca!

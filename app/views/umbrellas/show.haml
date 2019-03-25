@@ -5,7 +5,7 @@
   - @umbrella.friends.each do |friend|
     %li= friend.email
 
-%h3 Na odpowiedzi będziemy czekali jeszcze #{@umbrella.time_to_end} dni. Damy Ci znać mailowo, gdy będą gotowe.
+%h3 Na odpowiedzi będziemy czekali jeszcze #{@umbrella.days_to_end} dni. Damy Ci znać mailowo, gdy będą gotowe.
 %h4 Postępy w zbieraniu informacji możesz zobaczyć tutaj:
 - @umbrella.friends.order('answear IS NULL').each do |friend|
   = friend.answear? ? ':)' : ':|'
