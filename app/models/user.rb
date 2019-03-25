@@ -3,4 +3,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :umbrellas
+
+  validates :email, uniqueness: { case_sensitive: false }, presence: true
 end

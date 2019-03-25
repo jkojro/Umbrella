@@ -4,5 +4,6 @@ FactoryBot.define do
             swoje mocne strony. Proszę napisz w czym według Ciebie jestem dobra/y, co jest moją mocną stroną.
             Wystarczy danie lub dwa, ale jeśli chcesz napisać więcej, będzie mi bardzo miło. Wszystkie wypowiedzi trafią
             do mnie w formie zanonimizowanej. Anonimowość Twojej wypowiedzi zapewnia aplikacja Umbrella. Dziękiję :)' }
+    association :user
   end
 end
