@@ -43,7 +43,7 @@ describe UmbrellasController, type: :controller do
         .and change { Friend.count }.by(2)
       end
     end
-    
+
     context 'without nested friends' do
       let(:action) { post :create, params: { umbrella: attributes_for(:umbrella) }}
       it 'creates umbrella with valid friends' do
