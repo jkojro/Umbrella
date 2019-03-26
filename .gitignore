@@ -32,3 +32,7 @@
 
 # Ignore environment variables
 /config/initializers/app_env_vars.rb
+
+# Ignore test-related files
+/coverage.data
+/coverage/
