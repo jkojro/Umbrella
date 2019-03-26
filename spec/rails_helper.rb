@@ -68,4 +68,8 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
+end
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
