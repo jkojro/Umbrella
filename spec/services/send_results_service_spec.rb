@@ -6,7 +6,7 @@ describe SendResultsService, type: :service do
 
     context 'friends didnt answear and time is end' do
       let(:umbrella) { create(:umbrella, created_at: 7.days.ago) }
-      let!(:friend) { create(:friend, umbrella_id: umbrella.id, answear: nil) }
+      let!(:friend) { create(:friend, umbrella_id: umbrella.id) }
 
       it 'should should call UmbrellaMailer' do
         expect { subject }.to change { ActionMailer::Base.deliveries.size }.by(1)
@@ -15,7 +15,7 @@ describe SendResultsService, type: :service do
 
     context 'friends answeard before and now time is end' do
       let(:umbrella) { create(:umbrella, created_at: 7.days.ago) }
-      let!(:friend) { create(:friend, umbrella_id: umbrella.id) }
+      let!(:friend) { create(:friend, umbrella_id: umbrella.id, answear: 'test') }
 
       it 'should not call UmbrellaMailer' do
         expect { subject }.to change { ActionMailer::Base.deliveries.size }.by(0)
@@ -24,7 +24,7 @@ describe SendResultsService, type: :service do
 
     context 'friends answeard and time is not end yet' do
       let(:umbrella) { create(:umbrella) }
-      let!(:friend) { create(:friend, umbrella_id: umbrella.id) }
+      let!(:friend) { create(:friend, umbrella_id: umbrella.id, answear: 'test') }
       it 'should call UmbrellaMailer' do
         expect { subject }.to change { ActionMailer::Base.deliveries.size }.by(1)
       end
@@ -32,7 +32,7 @@ describe SendResultsService, type: :service do
 
     context 'friends didnt answear and time is not end yet' do
       let(:umbrella) { create(:umbrella) }
-      let!(:friend) { create(:friend, umbrella_id: umbrella.id, answear: nil) }
+      let!(:friend) { create(:friend, umbrella_id: umbrella.id) }
 
       it 'should not call UmbrellaMailer' do
         expect { subject }.to change { ActionMailer::Base.deliveries.size }.by(0)

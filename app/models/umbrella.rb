@@ -24,7 +24,7 @@ class Umbrella < ApplicationRecord
 
   def send_emails_to_friends
     self.friend_ids.each do |friend_id|
-      UmbrellaMailToFriendSenderJob.perform_now(friend_id)
+      UmbrellaMailToFriendSenderJob.perform_later(friend_id)
     end
   end
 
