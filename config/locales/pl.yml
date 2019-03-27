@@ -1,3 +1,7 @@
 pl:
-  to_friend_subject: Twój przyjacie prosi o wsparcie
+  errors:
+    404_message: Oooops! Wygląda na to, że konto na które chcesz wejść zostało już zamknięte.
+    500_message: Oooops! Coś poszło nie tak.
   results_subject: Czekanie dobiegło końca!
+  to_friend_subject: Twój przyjacie prosi o wsparcie
+  404_message: Oooops! Wygląda na to, że konto na które chcesz wejść zostało już zamknięte.
