@@ -8,7 +8,7 @@ describe SendResultsService, type: :service do
       let(:umbrella) { create(:umbrella, created_at: 7.days.ago) }
       let!(:friend) { create(:friend, umbrella_id: umbrella.id) }
 
-      it 'should should call UmbrellaMailer' do
+      it 'should call UmbrellaMailer' do
         expect { subject }.to change { ActionMailer::Base.deliveries.size }.by(1)
       end
     end
