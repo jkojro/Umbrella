@@ -17,7 +17,7 @@ jobs:
           RAILS_ENV: test
       - image: circleci/postgres:11.2-alpine
         environment:
-          POSTGRES_USER: my_umbrella
+          POSTGRES_USER: januszkojro
           POSTGRES_DB: my_umbrella_test
           POSTGRES_PASSWORD: ""
 
