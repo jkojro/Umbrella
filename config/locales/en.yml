@@ -2,5 +2,7 @@ en:
   errors:
     404_message: Oooops! It looks like the account you've been looking for has already been closed.
     500_message: Oooops! Something went wrong.
-  results_subject: Your waiting is over!
-  to_friend_subject: Your friend asks for your support
+  mails:
+    results_subject: Your waiting is over!
+    thanks: Thank you!
+    to_friend_subject: Your friend asks for your support
