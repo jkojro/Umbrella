@@ -8,6 +8,7 @@ class Umbrella < ApplicationRecord
   validates :message, presence: true
 
   after_save :send_emails_to_friends, :queue_result_mailer_job
+  after_update_commit :send_thanks_message
 
   DAYS_TO_WAIT = 7
 
@@ -24,7 +25,7 @@ class Umbrella < ApplicationRecord
 
   def send_emails_to_friends
     self.friend_ids.each do |friend_id|
-      UmbrellaMailToFriendSenderJob.perform_later(friend_id)
+      UmbrellaMailToFriendSenderJob.perform_now(friend_id)
     end
   end
 
@@ -34,5 +35,11 @@ class Umbrella < ApplicationRecord
 
   def completed?
     self.friends.all? { |f| f.answear.present? }
+  end
+
+  def send_thanks_message
+    self.friend_ids.each do |friend_id|
+      UmbrellaThanksMailSenderJob.perform_now(friend_id)
+    end
   end
 end

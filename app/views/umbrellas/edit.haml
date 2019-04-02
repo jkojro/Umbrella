@@ -1,0 +1,14 @@
+%h1 Thank to your friends for support!
+
+= simple_form_for @umbrella do |f|
+  - if @umbrella.errors.any?
+    #errors
+      %p
+        = @umbrella.errors.count
+        errors prevented from saving this Umbrella.
+      %ul
+        - @umbrella.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :thanks_message, input_html: { class: 'form-control' }
+  = f.button :submit, class: 'btn btn-primary'

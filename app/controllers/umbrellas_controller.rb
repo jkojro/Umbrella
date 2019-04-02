@@ -1,5 +1,6 @@
 class UmbrellasController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_umbrella, only: [:show, :edit, :update, :destroy]
 
   MESSAGE = 'To jest defaultowy message, który będzie wyświetlany w /new, ale może być zmieniony przez usera'.freeze
 
@@ -21,13 +22,27 @@ class UmbrellasController < ApplicationController
 		end
   end
 
-  def show
-    @umbrella = Umbrella.find(params[:id])
+  def show; end
+
+  def edit; end
+
+  def update
+    @umbrella.update(umbrella_params)
+    redirect_to umbrella_path(@umbrella)
+  end
+
+  def destroy
+    @umbrella.destroy
+    redirect_to new_umbrella_path
   end
 
   private
 
+  def set_umbrella
+      @umbrella = Umbrella.find(params[:id])
+    end
+
   def umbrella_params
-    params.require(:umbrella).permit(:message, friends_attributes: [:id, :email, :answear])
+    params.require(:umbrella).permit(:message, :thanks_message, friends_attributes: [:id, :email, :answear])
   end
 end
