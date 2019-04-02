@@ -28,7 +28,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
-  gem 'rubocop', require: false
 end
 
 group :development do
@@ -36,9 +35,14 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rack-mini-profiler'
+  gem 'rubocop', require: false
   gem 'reek'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pronto'
+  gem 'pronto-rubocop', require: false
+  gem 'pronto-brakeman', require: false
+  gem 'pronto-reek', require: false
 end
 
 group :test do
